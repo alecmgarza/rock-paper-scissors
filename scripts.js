@@ -15,8 +15,21 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "Rock";
+function game() {
+    const playerSelection = 'Rock';
+    const computerSelection = computerPlay();
+    console.log('Computer selects: ' + computerSelection);
+    console.log('Player selects: ' + playerSelection);
+    console.log(playRound(playerSelection, computerSelection));
+}
+
+for (let i = 0; i < 5; i++) {
+    game();
+}
+
+const playerSelection = 'Rock';
 const computerSelection = computerPlay();
-console.log('Computer selects: ' + computerSelection);
-console.log('Player selects: ' + playerSelection);
-console.log(playRound(playerSelection, computerSelection));
+
+
+
+//make playerSelection case-insensitive
