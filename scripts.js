@@ -6,10 +6,12 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
 
-    if (computerSelection === 'Paper' && playerSelection === 'Rock') {
-        return 'You lose! Paper beats Rock';
-    } else if (computerSelection === 'Scissors' && playerSelection === 'Rock') {
-        return 'You win! Rock beats Scissors';
+    if ((computerSelection === 'Paper' && playerSelection === 'Rock') || (computerSelection === 'Scissors' && playerSelection === 'Paper') || 
+    (computerSelection === 'Rock' && playerSelection === 'Scissors')) {
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    } else if ((computerSelection === 'Scissors' && playerSelection === 'Rock') || (computerSelection === 'Paper' && playerSelection === 'Scissors') ||
+    (computerSelection === 'Rock' && playerSelection === 'Paper')) {
+        return `You win! ${playerSelection} beats ${computerSelection}`;
     } else {
         return 'Tie, try again';
     }
