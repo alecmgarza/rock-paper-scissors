@@ -1,27 +1,44 @@
-const rps = ['Rock', 'Paper', 'Scissors'];
+const rps = ['rock', 'paper', 'scissors'];
 
 function computerPlay() {
     return rps[Math.floor(Math.random() * rps.length)];
 }
 
-function playRound(playerSelection, computerSelection) {
+function playerPlay() {
 
-    if ((computerSelection === 'Paper' && playerSelection === 'Rock') || (computerSelection === 'Scissors' && playerSelection === 'Paper') || 
-    (computerSelection === 'Rock' && playerSelection === 'Scissors')) {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
-    } else if ((computerSelection === 'Scissors' && playerSelection === 'Rock') || (computerSelection === 'Paper' && playerSelection === 'Scissors') ||
-    (computerSelection === 'Rock' && playerSelection === 'Paper')) {
-        return `You win! ${playerSelection} beats ${computerSelection}`;
+}
+
+function playRound(playerSelection, computerSelection) {
+    console.log('Computer selects: ' + computerSelection);
+    console.log('Player selects: ' + playerSelection);
+
+
+    
+
+    if ((computerSelection === 'paper' && playerSelection === 'rock') || (computerSelection === 'scissors' && playerSelection === 'paper') || 
+    (computerSelection === 'rock' && playerSelection === 'scissors')) {
+        alert(`You lose, ${computerSelection} beats ${playerSelection}!`);
+    } else if ((computerSelection === 'scissors' && playerSelection === 'rock') || (computerSelection === 'paper' && playerSelection === 'scissors') ||
+    (computerSelection === 'rock' && playerSelection === 'paper')) {
+        alert(`You win, ${playerSelection} beats ${computerSelection}!`);
     } else {
-        return 'Tie, try again';
+        alert('Tie, try again.');
     }
 }
 
+function computerScore() { //work on this
+    i = 0;
+}
+
+function playerScore() { //work on this
+    i = 0;
+    console.log(i + 1);
+}
+
 function game() {
-    const playerSelection = 'Rock';
+    let playerInput = prompt('Type rock, paper, or scissors');
+    const playerSelection = playerInput.toLowerCase();
     const computerSelection = computerPlay();
-    console.log('Computer selects: ' + computerSelection);
-    console.log('Player selects: ' + playerSelection);
     console.log(playRound(playerSelection, computerSelection));
 }
 
@@ -29,9 +46,9 @@ for (let i = 0; i < 5; i++) {
     game();
 }
 
-const playerSelection = 'Rock';
 const computerSelection = computerPlay();
+const playerSelection = playerSelection.toLowerCase();
 
 
-
+//create functions to keep score
 //make playerSelection case-insensitive
