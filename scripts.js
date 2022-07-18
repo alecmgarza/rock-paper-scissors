@@ -27,11 +27,12 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function game() {
+/*function game() {
 
     for (let i = 0; i < 5; i++) {
-        let playerInput = prompt('Type rock, paper, or scissors');
-        const playerSelection = playerInput.toLowerCase();
+        //let playerInput = prompt('Type rock, paper, or scissors');
+        //const playerSelection = playerInput.toLowerCase();
+        const playerSelection = id;
         const computerSelection = computerPlay();
         playRound(playerSelection, computerSelection);
     };
@@ -44,8 +45,17 @@ function game() {
         alert('Tie game!');
     };
 
-}
+}*/
 
-game();
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.id, computerPlay());
+    });
+    
+})
+
+//game();
 
 //REMINDER: scoreboard done, try to loop back to beginning on game over
