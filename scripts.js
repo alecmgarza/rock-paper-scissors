@@ -12,17 +12,19 @@ function playRound(playerSelection, computerSelection) {
     console.log('Computer selects: ' + computerSelection);
     console.log('Player selects: ' + playerSelection);
 
+    const results = document.querySelector('#results');
+
 
     if ((computerSelection === 'paper' && playerSelection === 'rock') || (computerSelection === 'scissors' && playerSelection === 'paper') || 
     (computerSelection === 'rock' && playerSelection === 'scissors')) {
         computerScore = computerScore + 1;
-        alert(`You lose, ${computerSelection} beats ${playerSelection}!\n\nPlayer: ${playerScore}\nComputer: ${computerScore}`);
+        results.textContent = `You lose, ${computerSelection} beats ${playerSelection}!\n\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
     } else if ((computerSelection === 'scissors' && playerSelection === 'rock') || (computerSelection === 'paper' && playerSelection === 'scissors') ||
     (computerSelection === 'rock' && playerSelection === 'paper')) {
         playerScore = playerScore + 1;
-        alert(`You win, ${playerSelection} beats ${computerSelection}!\n\nPlayer: ${playerScore}\nComputer: ${computerScore}`);
+        results.textContent = `You win, ${playerSelection} beats ${computerSelection}!\n\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
     } else {
-        alert(`Tie, try again.\n\nPlayer: ${playerScore}\nComputer: ${computerScore}`);
+        results.textContent = `Tie, try again.\n\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
     };
 
 }
