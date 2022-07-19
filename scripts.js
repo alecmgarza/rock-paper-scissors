@@ -32,6 +32,9 @@ function playRound(playerSelection, computerSelection) {
         const playAgain = document.createElement('button');
         playAgain.textContent = 'Play Again';
         body.appendChild(playAgain);
+        body.removeChild(rock); // try to find a more efficient way to remove the buttons once the game is over
+        body.removeChild(paper);
+        body.removeChild(scissors);
         
         playAgain.addEventListener('click', () => {
             location.reload();
@@ -43,21 +46,42 @@ function playRound(playerSelection, computerSelection) {
         const playAgain = document.createElement('button');
         playAgain.textContent = 'Play Again';
         body.appendChild(playAgain);
+        body.removeChild(rock); // try to find a more efficient way to remove the buttons once the game is over
+        body.removeChild(paper);
+        body.removeChild(scissors);
 
         playAgain.addEventListener('click', () => {
             location.reload();
         });
-        
+
     } else return;
 
 };
 
 const body = document.querySelector('body');
-const buttons = document.querySelectorAll('button');
 const results = document.querySelector('#results');
+
+// try to find a more efficient way to create all of these buttons
+
+const rock = document.createElement('button');
+rock.setAttribute('id', 'rock');
+rock.textContent = 'ROCK'
+body.insertBefore(rock, results);
+
+const paper = document.createElement('button');
+paper.setAttribute('id', 'paper');
+paper.textContent = 'PAPER';
+body.insertBefore(paper, results);
+
+const scissors = document.createElement('button');
+scissors.setAttribute('id', 'scissors');
+scissors.textContent = 'SCISSORS';
+body.insertBefore(scissors, results);
+
+const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playRound(button.id, computerPlay());
-    });    
+    });
 });
